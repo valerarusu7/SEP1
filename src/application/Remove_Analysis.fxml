@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="285.0" prefWidth="270.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.RemoveAnalysisViewController">
+   <children>
+      <Label alignment="BOTTOM_CENTER" contentDisplay="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="23.0" prefWidth="270.0" text="Remove Analysis">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Separator layoutY="25.0" prefHeight="17.0" prefWidth="270.0" />
+      <Button alignment="CENTER" layoutX="190.0" layoutY="79.0" mnemonicParsing="false" text="Remove" textAlignment="CENTER" />
+      <Label layoutX="96.0" layoutY="45.0" text="Select Analysis:" />
+      <ScrollPane layoutX="12.0" layoutY="71.0" prefHeight="201.0" prefWidth="164.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="203.0" prefWidth="148.0">
+               <children>
+                  <ListView layoutX="-8.0" layoutY="-1.0" prefHeight="208.0" prefWidth="164.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+      <Button layoutX="190.0" layoutY="118.0" mnemonicParsing="false" onAction="#ReturnbuttonPressed" prefHeight="25.0" prefWidth="59.0" text="Return" />
+   </children>
+</Pane>

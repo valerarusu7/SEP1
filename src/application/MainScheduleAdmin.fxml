@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainScheduleAdminViewController">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="599.0" prefWidth="788.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Pane prefHeight="532.0" prefWidth="711.0">
+               <children>
+                  <Button layoutX="626.0" layoutY="14.0" mnemonicParsing="false" onAction="#signOutbuttonPressed" text="Log out">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/in.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="547.0" layoutY="14.0" mnemonicParsing="false" onAction="#SearchbuttonPressed" text="Search">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/magnifier.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="16.0" layoutY="14.0" mnemonicParsing="false" onAction="#manageWorkersbuttonPressed" prefHeight="25.0" prefWidth="135.0" text="Manage Workers ">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/user-black-close-up-shape.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button layoutX="16.0" layoutY="49.0" mnemonicParsing="false" onAction="#manageAnalysisbuttonPressed" prefHeight="25.0" prefWidth="135.0" text="Manage Analysis">
+                     <graphic>
+                        <ImageView fitHeight="20.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/flask-with-liquid.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <ImageView blendMode="MULTIPLY" fitHeight="136.0" fitWidth="389.0" layoutX="173.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/Eurofins.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="16.0" layoutY="84.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Create Template">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/calendar.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="16.0" layoutY="173.0" prefHeight="353.0" prefWidth="680.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label alignment="CENTER" text="Week Number" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="Monday" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                        <Label text="Tuesday" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                        <Label text="Wednesday" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                        <Label text="Thursday" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+                        <Label text="Friday" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+                        <Label text="Saturday" GridPane.columnIndex="6" GridPane.halignment="CENTER" />
+                        <Label text="Sunday" GridPane.columnIndex="7" GridPane.halignment="CENTER" />
+                        <Label text="42" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Label text="43" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Label text="45" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Label text="46" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                        <Label text="47" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" text="48" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <Label layoutX="329.0" layoutY="136.0" text="Month">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="655.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="41.0" text="Next" />
+                  <Button layoutX="16.0" layoutY="137.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="61.0" text="Previous" />
+               </children>
+            </Pane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
