@@ -1,9 +1,9 @@
 package model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AnalysisList
-
 {
    private ArrayList<Analysis> jobs;
 
@@ -17,15 +17,30 @@ public class AnalysisList
       jobs.add(Analysis);
    }
 
-   public void removeAnalysis(int index)
+   public ArrayList<Analysis> getJobList()
    {
-      jobs.remove(index);
+      return this.jobs;
    }
 
-   public Analysis getAnalysis(int index) 
+   public Analysis getAnalysis(String name) throws IOException
    {
-   return jobs.get(index);
+      for (int i = 0; i < this.jobs.size(); i++)
+      {
+         if (this.jobs.get(i).getName().equals(name))
+         {
+            return this.jobs.get(i);
+         }
+      }
+      throw new IOException();
    }
 
-
+   public boolean equals(Object obj) throws NullPointerException
+   {
+      if (!(obj instanceof AnalysisList))
+      {
+         return false;
+      }
+      AnalysisList other = (AnalysisList) obj;
+      return this.jobs.equals(other.jobs);
+   }
 }

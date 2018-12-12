@@ -42,5 +42,19 @@ public class Vacation extends Task
    {
       this.end = end;
    }
-}
 
+   public boolean equals(Object obj) throws NullPointerException
+   {
+      if (super.equals(obj))
+      {
+         /*
+          * if (!(obj instanceof Vacation)) { return false; }
+          */
+         Vacation other = (Vacation) obj;
+         return this.type.equals(other.type) && this.status.equals(other.status)
+               && this.end.equals(other.end);
+      }
+      else
+         return false;
+   }
+}

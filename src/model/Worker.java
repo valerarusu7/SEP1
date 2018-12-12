@@ -4,62 +4,85 @@ import java.util.ArrayList;
 
 public class Worker
 {
-private String fullName;
-private String IDnr;
-private ArrayList<String> Notes; 
-private ArrayList<AnalysisList> training;
+   private String fullName;
+   private String IDnr;
+   private ArrayList<String> notes;
+   private AnalysisList training;
 
-public Worker(String fullName, String IDnr)
-{
-   this.fullName=fullName;
-   this.IDnr=IDnr;
-}
+   public Worker(String fullName, String IDnr)
+   {
+      this.fullName = fullName;
+      this.IDnr = IDnr;
+      this.notes = new ArrayList<>();
+      this.training = new AnalysisList();
+   }
 
-public String getIDnr()
-{
-   return IDnr;
-}
+   public Worker(String fullName, String IDnr, ArrayList<String> notes,
+         AnalysisList training)
+   {
+      this.fullName = fullName;
+      this.IDnr = IDnr;
+      this.notes = notes;
+      this.training = training;
+   }
 
-public void setID(String iDnr)
-{
-   IDnr = iDnr;
-}
+   public String getIDnr()
+   {
+      return IDnr;
+   }
 
-public String getFullName()
-{
-   return fullName;
-}
+   public void setID(String iDnr)
+   {
+      this.IDnr = iDnr;
+   }
 
-public void setFullName(String fullName)
-{
-   this.fullName = fullName;
-}
+   public String getFullName()
+   {
+      return this.fullName;
+   }
 
-public ArrayList<String> getNotes()
-{
-   return Notes;
-}
+   public void setFullName(String fullName)
+   {
+      this.fullName = fullName;
+   }
 
-public void setNotes(ArrayList<String> notes)
-{
-   this.Notes = notes;
-}
+   public ArrayList<String> getNotes()
+   {
+      return this.notes;
+   }
 
-public void manageTraining(int index, AnalysisList training)
-{
-   
-}
+   public void setNotes(ArrayList<String> notes)
+   {
+      this.notes = notes;
+   }
 
-public ArrayList<AnalysisList> getTraining()
-{
-   return training;
-}
+   public void addToTraining(Analysis training)
+   {
+      this.training.addWorker(training);
+      ;
+   }
 
-public void setTraining(ArrayList<AnalysisList> training)
-{
-   this.training = training;
-}
+   public AnalysisList getTraining()
+   {
+      return this.training;
+   }
 
+   public void setTraining(AnalysisList training)
+   {
+      this.training = training;
+   }
 
+   public boolean equals(Object obj) throws NullPointerException
+   {
+      if (!(obj instanceof Worker))
+      {
+         return false;
+      }
+      Worker other = (Worker) obj;
+      return this.fullName.equals(other.fullName)
+            && this.IDnr.equals(other.IDnr)
+            && this.training.equals(other.training)
+            && this.notes.equals(other.notes);
+   }
 
 }

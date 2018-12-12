@@ -1,47 +1,31 @@
 package model;
 
-
 public class Analysis
 {
    private String name;
-   private boolean isTraining;
-   private String trainer;
-   
 
-   public Analysis(String name, boolean isTraining, String trainer)
+   public Analysis(String name)
    {
       this.name = name;
-      this.isTraining = false;
-      this.trainer = trainer;
    }
-   
-   public String getTrainer()
-   {
-      return trainer;
-   }
-   
-   public void setTrainer(String trainer)
-   {
-      this.trainer = trainer;
-   }
-   
+
    public String getName()
    {
       return name;
    }
 
-   public boolean isTraining()
+   public void setName(String name)
    {
-      return isTraining;
+      this.name = name;
    }
-   
-   public boolean equals(Object obj)
+
+   public boolean equals(Object obj) throws NullPointerException
    {
-      if(!(obj instanceof Analysis))
+      if (!(obj instanceof Analysis))
       {
          return false;
       }
-      Analysis other =(Analysis) obj;
-     return this.name==other.name;
+      Analysis other = (Analysis) obj;
+      return this.name.equals(other.name);
    }
 }
