@@ -1,12 +1,15 @@
 package model;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class FileManager
 {
@@ -19,13 +22,12 @@ public class FileManager
       this.file = new File(filename);
    }
 
-   public void write(String filename, Object obj) throws IOException
+   public void writeToBin(String filename, Object obj) throws IOException
    {
       switch (filename)
       {
          case "Workers.bin":
          {
-            File file = new File(filename);
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream out = null;
             out = new ObjectOutputStream(fos);
@@ -45,7 +47,6 @@ public class FileManager
 
          case "Analysis.bin":
          {
-            File file = new File(filename);
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream out = null;
             out = new ObjectOutputStream(fos);
@@ -65,7 +66,6 @@ public class FileManager
 
          case "Schedule.bin":
          {
-            File file = new File(filename);
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream out = null;
             out = new ObjectOutputStream(fos);
@@ -85,7 +85,6 @@ public class FileManager
 
          case "Template.bin":
          {
-            File file = new File(filename);
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream out = null;
             out = new ObjectOutputStream(fos);
@@ -110,90 +109,50 @@ public class FileManager
       }
    }
 
-   public ArrayList<Object> load(String filename)
+   public Object loadFromBin(String filename)
+         throws IOException, ClassNotFoundException
    {
       switch (filename)
       {
          case "Workers.bin":
          {
-            File file = new File(filename);
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream in = null;
             in = new ObjectInputStream(fis);
-            
-            if (obj instanceof WorkerList)
-            {
-               WorkerList other = (WorkerList) obj;
-               out.writeObject(other);
-               out.close();
-            }
-            else
-            {
-               out.close();
-               throw new IOException();
-            }
+            WorkerList worker = (WorkerList) in.readObject();
+            in.close();
+            return worker;
          }
-            break;
 
          case "Analysis.bin":
          {
-            File file = new File(filename);
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream out = null;
-            out = new ObjectOutputStream(fos);
-            if (obj instanceof AnalysisList)
-            {
-               AnalysisList other = (AnalysisList) obj;
-               out.writeObject(other);
-               out.close();
-            }
-            else
-            {
-               out.close();
-               throw new IOException();
-            }
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream in = null;
+            in = new ObjectInputStream(fis);
+            AnalysisList analysis = (AnalysisList) in.readObject();
+            in.close();
+            return analysis;
          }
-            break;
 
          case "Schedule.bin":
          {
-            File file = new File(filename);
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream out = null;
-            out = new ObjectOutputStream(fos);
-            if (obj instanceof TaskList)
-            {
-               TaskList other = (TaskList) obj;
-               out.writeObject(other);
-               out.close();
-            }
-            else
-            {
-               out.close();
-               throw new IOException();
-            }
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream in = null;
+            in = new ObjectInputStream(fis);
+            TaskList master = (TaskList) in.readObject();
+            in.close();
+            return master;
          }
-            break;
 
          case "Template.bin":
          {
-            File file = new File(filename);
-            FileOutputStream fos = new FileOutputStream(file);
-            ObjectOutputStream out = null;
-            out = new ObjectOutputStream(fos);
-            if (obj instanceof TaskList)
-            {
-               TaskList other = (TaskList) obj;
-               out.writeObject(other);
-               out.close();
-            }
-            else
-            {
-               out.close();
-               throw new IOException();
-            }
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream in = null;
+            in = new ObjectInputStream(fis);
+            TaskList template = (TaskList) in.readObject();
+            in.close();
+            return template;
          }
-            break;
 
          default:
          {
@@ -201,5 +160,23 @@ public class FileManager
          }
       }
    }
-   
+
+   public void loadWorkersFromTxt() throws IOException
+   {
+      WorkerList workers = new WorkerList();
+      Scanner in = new Scanner(file);
+      while (in.hasNext())
+      {
+         String line = in.nextLine();
+         String[] token = line.split(";");
+         workers.addWorker(new Worker(token[0].trim(), token[1].trim()));
+      }
+      in.close();
+
+      FileOutputStream fos = new FileOutputStream(file, true);
+      ObjectOutputStream out = null;
+      out = new ObjectOutputStream(fos);
+      out.writeObject(workers);
+      out.close();
+   }
 }
