@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Worker
+public class Worker implements Serializable
 {
    private String fullName;
    private String IDnr;

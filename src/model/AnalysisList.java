@@ -1,9 +1,10 @@
 package model;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class AnalysisList
+public class AnalysisList implements Serializable
 {
    private ArrayList<Analysis> jobs;
 

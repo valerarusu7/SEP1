@@ -1,5 +1,7 @@
 package model;
 
+import java.io.IOException;
+
 public abstract class Task
 {
    private Worker who;
@@ -11,9 +13,16 @@ public abstract class Task
       this.start = start;
    }
 
-   public Worker getWorker()
+   public Task(MyDate start)
    {
-      return this.who;
+      this.who = null;
+      this.start = start;
+   }
+
+   public Worker getWorker() throws IOException
+   {
+      if(this.who.equals(null)) throw new IOException();
+      else return this.who;
    }
 
    public MyDate getStart()

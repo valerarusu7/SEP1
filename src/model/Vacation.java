@@ -1,6 +1,8 @@
 package model;
 
-public class Vacation extends Task
+import java.io.Serializable;
+
+public class Vacation extends Task implements Serializable
 {
    private String type, status;
    private MyDate end;
@@ -47,9 +49,6 @@ public class Vacation extends Task
    {
       if (super.equals(obj))
       {
-         /*
-          * if (!(obj instanceof Vacation)) { return false; }
-          */
          Vacation other = (Vacation) obj;
          return this.type.equals(other.type) && this.status.equals(other.status)
                && this.end.equals(other.end);

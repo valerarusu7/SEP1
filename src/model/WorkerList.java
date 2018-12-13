@@ -1,9 +1,10 @@
 package model;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class WorkerList
+public class WorkerList implements Serializable
 {
    private ArrayList<Worker> list;
 

@@ -1,6 +1,8 @@
 package model;
 
-public class Analysis
+import java.io.Serializable;
+
+public class Analysis implements Serializable
 {
    private String name;
 
