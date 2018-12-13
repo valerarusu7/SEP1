@@ -1,0 +1,16 @@
+Model:
+- Added every missing "equals" method
+- Added missing initializing in constructors
+- Fixed comparing strings with "==" instead of aformentioned equals
+- Tested equals methods 
+- Removed endless loop in equals method by moving the "trainer" in Analysis to the Task
+- Added IOExceptions to methods that can give problems with null objects so that they can be handled in Upperside
+- Fixed logic in WorkerList, AnalysisList
+- Added getters in WorkerList to accompany 'future' needs
+
+
+ModelManager:
+- Need to know what type of objects to throw at Controller, bare basics for now
+
+FileManager:
+- Format down, implementation at halt because of Model state
