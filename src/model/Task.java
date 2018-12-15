@@ -22,7 +22,7 @@ public abstract class Task implements Serializable
 
    public Worker getWorker() throws IOException
    {
-      if(this.who.equals(null)) throw new IOException();
+      if(this.who.equals(null)) throw new IOException("There is no worker assigned to this task, it's probably a template");
       else return this.who;
    }
 

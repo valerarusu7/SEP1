@@ -37,7 +37,7 @@ public class FileManager
             else
             {
                out.close();
-               throw new IOException();
+               throw new IOException("You're trying to fit something different than a WorkerList into the Worker bin");
             }
          }
             break;
@@ -56,7 +56,7 @@ public class FileManager
             else
             {
                out.close();
-               throw new IOException();
+               throw new IOException("You're trying to fit something different than an AnalysisList into the Analysis bin");
             }
          }
             break;
@@ -75,12 +75,12 @@ public class FileManager
             else
             {
                out.close();
-               throw new IOException();
+               throw new IOException("You're trying to fit something different than a TaskList into the Master Schedule bin");
             }
          }
             break;
 
-         case "Template.bin":
+         case "TemplateS.bin":
          {
             FileOutputStream fos = new FileOutputStream(file);
             ObjectOutputStream out = null;
@@ -94,14 +94,33 @@ public class FileManager
             else
             {
                out.close();
-               throw new IOException();
+               throw new IOException("You're trying to fit something different than a TaskList into the Small Template bin");
+            }
+         }
+            break;
+            
+         case "TemplateL.bin":
+         {
+            FileOutputStream fos = new FileOutputStream(file);
+            ObjectOutputStream out = null;
+            out = new ObjectOutputStream(fos);
+            if (obj instanceof TaskList)
+            {
+               TaskList other = (TaskList) obj;
+               out.writeObject(other);
+               out.close();
+            }
+            else
+            {
+               out.close();
+               throw new IOException("You're trying to fit something different than a TaskList into the Large Template bin");
             }
          }
             break;
 
          default:
          {
-            throw new IOException();
+            throw new IOException("The filename does not match with the bin files, please try again");
          }
       }
    }
@@ -140,7 +159,17 @@ public class FileManager
             return master;
          }
 
-         case "Template.bin":
+         case "TemplateS.bin":
+         {
+            FileInputStream fis = new FileInputStream(file);
+            ObjectInputStream in = null;
+            in = new ObjectInputStream(fis);
+            TaskList template = (TaskList) in.readObject();
+            in.close();
+            return template;
+         }
+         
+         case "TemplateL.bin":
          {
             FileInputStream fis = new FileInputStream(file);
             ObjectInputStream in = null;
@@ -152,7 +181,7 @@ public class FileManager
 
          default:
          {
-            throw new IOException();
+            throw new IOException("The filename does not match with the bin files, please try again");
          }
       }
    }

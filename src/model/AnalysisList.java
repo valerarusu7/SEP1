@@ -32,7 +32,7 @@ public class AnalysisList implements Serializable
             return this.jobs.get(i);
          }
       }
-      throw new IOException();
+      throw new IOException("An Analysis with this name doesn't exist");
    }
 
    public boolean equals(Object obj) throws NullPointerException

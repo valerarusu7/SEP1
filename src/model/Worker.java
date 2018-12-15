@@ -29,7 +29,7 @@ public class Worker implements Serializable
 
    public String getIDnr()
    {
-      return IDnr;
+      return this.IDnr;
    }
 
    public void setID(String iDnr)

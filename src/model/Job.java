@@ -24,10 +24,10 @@ public class Job extends Task implements Serializable
             break;
          }
       }
-      if(this.analysis.equals(null)) throw new IOException();
+      if(this.analysis.equals(null)) throw new IOException("The analysis couldn't be found in the workers training and he is not capable of doing it");
    }
 
-   public Job(MyDate start, Analysis analysis) throws IOException
+   public Job(MyDate start, Analysis analysis)
    {
       super(start);
       this.isTraining = false;
@@ -63,7 +63,7 @@ public class Job extends Task implements Serializable
    public Worker getTrainer() throws IOException
    {
       if (this.trainer.equals(null))
-         throw new IOException();
+         throw new IOException("This task has no trainer assigned to it");
       else
          return this.trainer;
    }
@@ -71,7 +71,7 @@ public class Job extends Task implements Serializable
    public Analysis getAnalysis() throws IOException
    {
       if (this.analysis.equals(null))
-         throw new IOException();
+         throw new IOException("This task has no analysis assigned to it, wait how did you get this exception ?!?");
       else
          return this.analysis;
    }

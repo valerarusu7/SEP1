@@ -18,9 +18,9 @@ public class WorkerList implements Serializable
       list.add(worker);
    }
 
-   public void removeWorker(int index)
+   public void removeWorker(Worker worker)
    {
-      list.remove(index);
+      list.remove(worker);
    }
 
    public Worker getWorker(int index)
@@ -32,12 +32,12 @@ public class WorkerList implements Serializable
    {
       return this.list.size();
    }
-   
+
    public ArrayList<Worker> getWorkers()
    {
       return this.list;
    }
-   
+
    public int getNumberOfWorkersByName(String name)
    {
       int count = 0;
@@ -60,7 +60,7 @@ public class WorkerList implements Serializable
          }
       }
       if (listByName.size() == 0)
-         throw new IOException();
+         throw new IOException("There doesn't exist anyone by that name");
       else
          return listByName;
    }
@@ -87,7 +87,7 @@ public class WorkerList implements Serializable
          }
       }
       if (listByIDnr.size() == 0)
-         throw new IOException();
+         throw new IOException("There doesn't exist anyone by that ID");
       else
          return listByIDnr;
    }
@@ -126,48 +126,48 @@ public class WorkerList implements Serializable
          }
       }
       if (listByAnalysis.size() == 0)
-         throw new IOException();
+         throw new IOException("There doesn't exist anyone by that analysis");
       else
          return listByAnalysis;
    }
 
-   public Worker getWorkerByName(String name)
+   public Worker getWorkerByName(String name) throws IOException 
    {
       for (int i = 0; i <= list.size(); i++)
       {
          if (list.get(i).getFullName().equals(name))
             return list.get(i);
       }
-      return null;
+      throw new IOException("There doesn't exist anyone by that name");
    }
 
-   public Worker getWorkerByID(String ID)
+   public Worker getWorkerByID(String ID) throws IOException
    {
       for (int i = 0; i <= list.size(); i++)
       {
          if (list.get(i).getIDnr().equals(ID))
             return list.get(i);
       }
-      return null;
+      throw new IOException("There doesn't exist anyone by that ID");
    }
 
-   public ArrayList<String> getNotesByName(String name)
+   public ArrayList<String> getNotesByName(String name) throws IOException
    {
       for (int i = 0; i <= list.size(); i++)
       {
          if (list.get(i).getFullName().equals(name))
             this.list.get(i).getNotes();
       }
-      return null;
+      throw new IOException("No notes exist for this worker");
    }
 
-   public ArrayList<AnalysisList> getTrainingByName(String name)
+   public AnalysisList getTrainingByName(String name) throws IOException
    {
       for (int i = 0; i <= list.size(); i++)
       {
          if (list.get(i).getFullName().equals(name))
             this.list.get(i).getTraining();
       }
-      return null;
+      throw new IOException("No training exists for this worker");
    }
 }
