@@ -1,8 +1,9 @@
 package model;
 
 import java.io.IOException;
+import java.io.Serializable;
 
-public abstract class Task
+public abstract class Task implements Serializable
 {
    private Worker who;
    private MyDate start;

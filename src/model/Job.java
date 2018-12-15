@@ -23,9 +23,8 @@ public class Job extends Task implements Serializable
             this.analysis = analysis;
             break;
          }
-         else
-            throw new IOException();
       }
+      if(this.analysis.equals(null)) throw new IOException();
    }
 
    public Job(MyDate start, Analysis analysis) throws IOException

@@ -28,6 +28,16 @@ public class WorkerList implements Serializable
       return list.get(index);
    }
 
+   public int getSize()
+   {
+      return this.list.size();
+   }
+   
+   public ArrayList<Worker> getWorkers()
+   {
+      return this.list;
+   }
+   
    public int getNumberOfWorkersByName(String name)
    {
       int count = 0;

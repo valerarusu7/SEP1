@@ -60,7 +60,6 @@ public class Worker implements Serializable
    public void addToTraining(Analysis training)
    {
       this.training.addWorker(training);
-      ;
    }
 
    public AnalysisList getTraining()

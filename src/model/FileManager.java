@@ -1,14 +1,11 @@
 package model;
 
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class FileManager
@@ -109,10 +106,9 @@ public class FileManager
       }
    }
 
-   public Object loadFromBin(String filename)
-         throws IOException, ClassNotFoundException
+   public Object loadFromBin() throws IOException, ClassNotFoundException
    {
-      switch (filename)
+      switch (this.filename)
       {
          case "Workers.bin":
          {
@@ -172,8 +168,8 @@ public class FileManager
          workers.addWorker(new Worker(token[0].trim(), token[1].trim()));
       }
       in.close();
-
-      FileOutputStream fos = new FileOutputStream(file, true);
+      File rFile = new File("Workers.bin");
+      FileOutputStream fos = new FileOutputStream(rFile, true);
       ObjectOutputStream out = null;
       out = new ObjectOutputStream(fos);
       out.writeObject(workers);
